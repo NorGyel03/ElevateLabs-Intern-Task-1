@@ -1,0 +1,44 @@
+1. What are the various kinds of missing data?
+MCAR (Missing Completely at Random): The missing data has nothing to do with any feature or variable.
+MAR (Missing at Random): Missingness is associated with other observed variables, but not the missing variable itself.
+MNAR (Missing Not at Random): The missingness is associated with the missing value.
+
+2. How do you deal with categorical variables?
+One-hot encoding for nominal variables (without inherent order) such as gender or city.
+Label encoding for ordinal variables (with order) such as level of education or rankings.
+In case of optional use, employ target encoding or frequency encoding in the case of high-cardinality variables.
+
+3. What's the difference between normalization and standardization?
+Normalization (Min-Max Scaling): Rescales features to a scale (typically between 0 to 1).
+Formula: (x - min) / (max - min)
+Standardization (Z-score Scaling): Bins features about 0 with a standard deviation of 1.
+Formula: (x - mean) / std
+Apply standardization if the data contains outliers, and normalization if you need to get everything on one scale.
+
+4. How do you find outliers?
+Boxplots (graphical method) — use whiskers to find extreme values.
+IQR method — any value not between Q1 - 1.5IQR or Q3 + 1.5IQR is an outlier.
+Z-score — values with absolute z-scores greater than 3 are usually treated as outliers.
+
+5. Why is preprocessing necessary in ML?
+Models perform better with clean, numerical, and scaled data.
+Avoids garbage-in-garbage-out situations.
+Enhances convergence, accuracy, and generalization.
+Makes sure all features contribute equally to the outcome.
+
+6. What is one-hot encoding vs label encoding?
+One-hot encoding: Transforms categories into individual binary columns (suitable for nominal data).
+Example: Male, Female → Sex_Male, Sex_Female
+Label encoding: Turns categories into numbers (good for ordinal data)
+Example: Low, Medium, High → 0, 1, 2
+
+7. How do you handle data imbalance?
+Oversampling (e.g. SMOTE) or undersampling
+Using proper metrics (such as F1-score instead of accuracy)
+Using class weights within algorithms
+Sometimes creating synthetic data
+
+8. Can preprocessing impact model accuracy?
+Yes, a lot
+Without preprocessing, models can become biased or misled by scale, nulls, or noise.
+Good preprocessing allows models to learn meaningful patterns and generalize more.
